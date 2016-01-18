@@ -1,0 +1,73 @@
+<?php
+	include '../bd/conecta.php';
+	
+	@$cpf = $_REQUEST['cpf'];
+	@$nome = $_REQUEST['nome']; 
+	@$tipo = $_REQUEST['tipo']; 
+	
+	
+	
+	include "cabecalho.html";
+	   
+?>
+
+        <div class="row">
+            
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+						<div class="panel-heading">
+                            Lista de Documentos
+                        </div>
+						
+                            <form action="?tipo=2" method="post">
+                                <div class="col-md-8">
+                                Pesquisar:
+                                <input type="text" class="form-control tamanho_input2" name="nome" placeholder="Pesquisar" />
+                                </div>
+                                <div class="col-md-2">
+                                <input class="btn btn-primary" type='submit' value='Consultar' class='buttom'/>
+                                </div>
+                            </form>
+                            
+                            <br />
+                            <div class="col-md-12">
+                            	<hr class="linha"/>
+                            </div>
+                        <table border='1'>
+						<tr>
+							<td>Codigo</td>
+							<td>CPF</td>
+							<td>Nome</td>
+                     <td>Telefone</td>
+							<td>Adicionar</td>
+                     <td></td>
+						</tr>
+                        <?
+						
+						$i = 0;
+						if($tipo == 2){  
+							$result = $conecta->query("SELECT id, cpf, nome, telefone FROM `CLIENTES` WHERE NOME like '%' || '$nome' || '%' and ('$cpf' = 0 OR CPF = '$cpf')");
+							
+							while($linha = $result->fetch_row())
+							{
+								?><tr>
+									<td><?echo $linha[0];?></td>
+									<td><?echo $linha[1];?></td>
+									<td><?echo $linha[2];?></td>
+                                    <td><?echo $linha[3];?></td>
+                                    <td align="center"><a href="?id=<?echo $linha[0]?>&tipo=2"><img src="../img/img4.png" width="28"/></a></td>
+								</tr>
+                                
+							<?	
+								$i++;
+							}
+							
+						}
+						?>
+						</table>
+						
+                    </div>
+                </div>
+            <?
+	include "rodape.html";
+?>

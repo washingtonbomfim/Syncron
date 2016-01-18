@@ -1,0 +1,66 @@
+﻿<?php
+	session_start(); 
+	
+	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)) { 
+		unset($_SESSION['login']); 
+		unset($_SESSION['senha']); 
+		header("Location: ../index.php?retorno=2");
+	} 
+	
+	echo $logado = $_SESSION['login']; 
+
+
+	include "cabecalho.html";
+
+?>
+
+	<div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    Menu rápido
+                </div>
+                <div class="panel-body">
+                    <div class="menu_centro">
+                    	<div class="menu_home">
+                    		<center><a href="cad_pedidos.php?tipo=1"><img src="../img/img4.png" />
+                            <p>Documentos</p></a></center>
+                    	</div>
+                        <div class="menu_home">
+                    		<center><a href="#"><img src="../img/img9.png" />
+                            <p>Usuários</p></a></center>
+                    	</div>
+                        <div class="menu_home">
+                    		<center><a href="#"><img src="../img/img12.png" />
+                            <p>Console</p></a></center>
+                    	</div>
+                        <div class="menu_home">
+                    		<center><a href="cliente.php"><img src="../img/img14.png" />
+                            <p>Cliente</p></a></center>
+                    	</div>
+                        <div class="menu_home">
+                    		<center><a href="loja.php"><img src="../img/img13.png" />
+                            <p>Loja</p></a></center>
+                    	</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+
+        </div>
+    </div>
+
+
+
+<?php 
+	
+
+	include "rodape.html";
+
+?>
