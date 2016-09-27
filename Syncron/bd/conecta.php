@@ -11,5 +11,5 @@
 	 if($conecta -> connect_errno) 
  		 echo "Erro de conexao com o banco!";
 	 else
- 		// echo "conectado";
+
 ?>

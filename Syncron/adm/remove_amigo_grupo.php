@@ -28,4 +28,13 @@
 			header("Location: home.php?return=-4");
 			//echo "NAO FOI POSSIVEL REMOVER GRUPO.";
 		}
+	}elseif ($tipo == 3) {
+		$sql = $conecta->query("update syncron.sync_grupo_usuarios set status = 'C' where codigo_grupo = ".$cod_grup. " and codigo_usuario = ".$cod_user);
+		if($sql > 0){
+			header("Location: lista_amigos_grupo.php?return=2");
+			//echo "GRUPO REMOVIDO.";
+		}else{
+			header("Location: lista_amigos_grupo.php?return=-2");
+			//echo "NAO FOI POSSIVEL REMOVER GRUPO.";
+		}
 	}

@@ -25,9 +25,9 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
     $nome_arquivo = basename($_FILES['userfile']['name']);
 
     $sql = $conecta->query("INSERT INTO syncron.sync_arquivos(nome_arquivo,codigo_usuario,
-                            codigo_diretorio,tipo_arquivo,hash_nome_arquivo,status)VALUES
+                            codigo_diretorio,tipo_arquivo,hash_nome_arquivo,status,compartilhado,codigo_amigo,data_envio)VALUES
                             ('$nome_arquivo','$cod',
-                            '$codigo_diretorio',1,'0000000000','E')");
+                            '$codigo_diretorio',1,'0000000000','E','N','$cod',(SELECT DATE_FORMAT(NOW(),'%d-%m-%Y')))");
 
  //   $resultado = $conecta->$query($sql);
 

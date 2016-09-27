@@ -11,6 +11,30 @@ include '../bd/conecta.php';
 $codigo_usuario = $_SESSION['codigo_usuario'];
 
 ?>
+<?php
+        if($erro == 1){
+            echo "<div class='container'>
+                 <div class='row'>
+                <div class='alert-group'>
+                <div class='alert alert-warning alert-dismissable'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                <strong>Aviso!</strong> Você já possui este usuario como amigo.
+                </div>
+                </div>
+                </div>";
+     }elseif($erro == 2){
+            echo "<div class='container'>
+                 <div class='row'>
+                <div class='alert-group'>
+                <div class='alert alert-success alert-dismissable'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
+                <strong>Parabéns!</strong> Amigo adicionado com sucesso.
+                </div>
+                </div>
+                </div>";
+     }
+
+?> 
 <br />
 <br /><br />
     <div class="row">

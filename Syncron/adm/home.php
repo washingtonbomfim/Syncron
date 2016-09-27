@@ -10,6 +10,39 @@
     @$return = $_REQUEST['return'];
 ?><head>
 <style>
+
+
+.btn3d {
+    position:relative;
+	border-radius:100px;
+    top: -6px;
+    border:0;
+     transition: all 40ms linear;
+     margin-top:10px;
+     margin-bottom:10px;
+     margin-left:2px;
+     margin-right:2px;
+}
+.btn3d:active:focus,
+.btn3d:focus:hover,
+.btn3d:focus {
+    -moz-outline-style:none;
+         outline:medium none;
+}
+.btn3d:active, .btn3d.active {
+    top:2px;
+}
+
+.btn3d.btn-danger {
+    box-shadow:0 0 0 1px #b93802 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 10px 0 0 #AA0000, 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#D73814;
+}
+
+.btn3d.btn-info {
+    box-shadow:0 0 0 1px #00a5c3 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #348FD2, 0 12px 8px 1px rgba(0,0,0,0.5);
+    background-color:#39B3D7;
+}
+
 .center {
     margin-top:50px;
 }
@@ -158,11 +191,9 @@
         <br />
         <h1 class="text-center"><img src="../img/logo-cloud.png"></h1>
         <br />
-        <h2 class="text-center">Click para Upload</h2>
-        <br />
+         <center><a data-toggle="modal" data-target="#idModal"><button style="width: 200px; height: 200px" type="button" class="btn btn-info btn-lg btn3d"><img src="../img/icn-down.png"/></button></a></center>
         <!--<form class="text-center" action="enviar_arquivo.php" role="form">-->
             <!--<button class="btn btn-primary btn-upload" type="submit"></button>-->
-            <center><div class="center"><a data-toggle="modal" data-target="#idModal"><button  class="btn btn-primary btn-upload"></button></a></div></center>
             <!--<center><div class="center"><button data-toggle="modal" data-target="#idModal" class="btn btn-primary center-block">Click Me</button></div></center>-->
         <!--</form>-->
     </div>

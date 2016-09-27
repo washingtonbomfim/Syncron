@@ -32,29 +32,43 @@ include '../bd/conecta.php';
 	<script src="../js/theme.admin.extension.js"></script>
 		<!-- Admin Extension Examples -->
 	<script type="text/javascript">
+
 	
         $(document).ready(function()
         {
             $("#myModalProcedimento").modal("show");
         });
     </script>
-	
-		
-		
-	<!-- Admin Extension Examples -->
-	<!--<script type="text/javascript">
-	
-        $(document).ready(function()
-        {
-            $("#myModalProcedimento").modal("show");
-        });
-		
-    </script>-->
-	
     
+    <!--esconde as parada -->
+<script type="text/javascript">
+            EsconderAmigo();
+            EsconderGrupo();
+            $(document).ready(function() {
+                $("#amigos").click(MostrarAmigo);
+                $("#grupos").click(MostrarGrupo);
+                });
+ 
+            function MostrarAmigo(){
+                $("#mostraAmigo").show();
+                 $("#mostraGrupo").hide();
+            }
+            function EsconderAmigo(){
+                $("#mostraAmigo").hide();
+            }
+            function MostrarGrupo(){
+                $("#mostraGrupo").show();
+                $("#mostraAmigo").hide();
+            }
+            function EsconderGrupo(){
+                $("#mostraGrupo").hide();
+            }
+        </script>
 
 <style type="text/css">
-
+body{
+	background:url(../img/bg.png);
+}
 .tam-select{
 	width:570px;	
 }
@@ -108,17 +122,9 @@ include '../bd/conecta.php';
     border-radius: 20px;
 }
 .btn-upload {
-    border-radius: 100px;
-	background:url(../img/icn-down.png) no-repeat center #3C59E6;
-	width:150px;
-	height:150px;
-}
-.btn-upload:hover {
-    border-radius: 100px;
-	background:url(../img/icn-down-hover.png) no-repeat center #3C59E6;
-	width:155px;
-	height:155px;
-	margin-top:-2px;
+	background:url(../img/icn-down.png) no-repeat center;
+    width: 100px;
+    height: 100px;
 }
 
 .input-group input {
@@ -151,6 +157,7 @@ include '../bd/conecta.php';
 	margin:0 auto;
 	padding:0;
 	}
+
 </style>
 </head>
 <body>
@@ -167,6 +174,7 @@ include '../bd/conecta.php';
           </button>
 		  <!-- termina aqui o celular... pelomenos acho -->
           <a href="home.php" class="navbar-brand text-uppercase">SYNCRON</a><a class="navbar-brand text-uppercase" href="lista_arquivos.php"><span class="label btn-primary text-capitalize">Meus Arquivos</span></a>
+         <a class="navbar-brand text-uppercase" href="lista_arquivos_compartilhados.php"><span class="label btn-primary text-capitalize">Arquivos Compartilhados</span></a>
          <!-- <select data-plugin-selectTwo  class="populate placeholder tam-select" placeholder="teste" data-plugin-options='{ "placeholder": "Select a State", "allowClear": false }'>
                     <option value="AK">Pesquisar...</option>
                     <option>Alaska +ADD</option>
@@ -198,6 +206,9 @@ include '../bd/conecta.php';
                         </li>
                         <li>
                             <a href="#MdlVinculaAmigos" data-toggle="modal" data-target="#MdlVinculaAmigos"><i class="fa fa-fw fa-power-off"></i>Vincular Amigos em Grupos</a>
+                        </li>
+                        <li>
+                            <a href="../adm/lista_amigos_grupo.php"><i class="fa fa-fw fa-power-off"></i>Lista Amigos em Grupos</a>
                         </li>
                         <li>
                             <a href="../adm/logout.php"><i class="fa fa-fw fa-power-off"></i> Sair</a>
