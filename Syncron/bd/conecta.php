@@ -1,7 +1,7 @@
 <?php
 	 $servidor   =   "localhost";   //SERVIDOR
  	 $usuario    =   "root";        //USUARIO
-	 $senha      =   "4f9bba0717";            //SENHA quando eu chegar na brasilcard, mudar
+	 $senha      =   "";            //SENHA 
 	 $bd         =   "syncron";   //DATABASE
 
 	 //CONECTANDO 
